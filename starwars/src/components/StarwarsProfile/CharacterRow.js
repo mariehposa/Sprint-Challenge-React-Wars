@@ -13,7 +13,7 @@ function CharacterRow ({characters}) {
             {
                 characters.map(character => <Profile person={character}/>)
             }
-        </CharacterStyle>
+        </CharacterStyle> 
     );
 }
 

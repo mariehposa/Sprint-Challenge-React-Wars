@@ -4,7 +4,9 @@ import axios from 'axios';
 import Profile from './components/StarwarsProfile/starwarsProfile';
 import CharacterRow from './components/StarwarsProfile/CharacterRow';
 
-const starWarApi = 'https://swapi.co/api/people/'
+const starWarApi = 'https://swapi.co/api/people/';
+
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -31,6 +33,7 @@ const App = () => {
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <CharacterRow characters={starwarState}/>
+      <button></button>
     </div>
   );
 }

@@ -27,8 +27,8 @@ function Profile ({person}) {
         font-size: 1.5rem;
 
         &:hover{
-            color:white;
-            font-size: 1.7rem;
+            color:${person.eye_color.split("-")[0]};
+            font-size: 1.6rem;
         }
     }
 `
