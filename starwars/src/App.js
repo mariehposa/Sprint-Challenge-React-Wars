@@ -38,7 +38,7 @@ const App = () => {
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <CharacterRow characters={starwarState}/>
-      <button></button>
+      <StyledButton>Next >></StyledButton>
     </div>
   );
 }
