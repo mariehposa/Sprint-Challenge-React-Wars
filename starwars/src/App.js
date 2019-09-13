@@ -4,9 +4,14 @@ import axios from 'axios';
 import Profile from './components/StarwarsProfile/starwarsProfile';
 import CharacterRow from './components/StarwarsProfile/CharacterRow';
 
+const StyledButton = styled.button`
+   padding: 1rem 2rem;
+   border-radius: 3rem;
+   font-family: 'Lato', serif;
+   background: gray;
+`
+
 const starWarApi = 'https://swapi.co/api/people/';
-
-
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -21,11 +26,11 @@ const App = () => {
   useEffect(() =>{
     axios.get(starWarApi)
       .then((response) =>{
-        console.log(response.data);
+        //console.log(response.data);
         setStarwarState(response.data.results)
       })
       .catch((error) =>{
-        console.log(error);
+        //console.log(error);
       });
   }, []);
 
