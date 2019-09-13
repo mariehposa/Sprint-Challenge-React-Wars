@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
 import Profile from './components/StarwarsProfile/starwarsProfile';
-
+import CharacterRow from './components/StarwarsProfile/CharacterRow';
 
 const starWarApi = 'https://swapi.co/api/people/'
 
@@ -14,13 +14,13 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  const [starwarState, setStarwarState] = useState();
+  const [starwarState, setStarwarState] = useState([]);
 
   useEffect(() =>{
     axios.get(starWarApi)
       .then((response) =>{
         console.log(response.data);
-        setStarwarState(response.data)
+        setStarwarState(response.data.results)
       })
       .catch((error) =>{
         console.log(error);
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <Profile/>
+      <CharacterRow characters={starwarState}/>
     </div>
   );
 }
