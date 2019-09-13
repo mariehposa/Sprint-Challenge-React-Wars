@@ -14,6 +14,7 @@ function Profile ({person}) {
     border: .2rem solid ${person.eye_color.split("-")[0]};
     border-radius: 2rem;
     color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     &:hover{
         border: .2rem solid white;

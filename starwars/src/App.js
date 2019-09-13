@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import Profile from './components/StarwarsProfile/starwarsProfile';
 import CharacterRow from './components/StarwarsProfile/CharacterRow';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
-   padding: 1rem 2rem;
-   border-radius: 3rem;
-   font-family: 'Lato', serif;
-   background: gray;
+   padding: 1.5rem;
+   border-radius: 2rem;
+   background: whitesmoke;
 `
 
 const starWarApi = 'https://swapi.co/api/people/';
@@ -22,23 +21,30 @@ const App = () => {
   // sync up with, if any.
 
   const [starwarState, setStarwarState] = useState([]);
+  const [url, setUrl] = useState(starWarApi)
+  const [next, setNext] = useState("")
 
   useEffect(() =>{
-    axios.get(starWarApi)
+    axios.get(url)
       .then((response) =>{
         //console.log(response.data);
         setStarwarState(response.data.results)
+        setNext(response.data.next)
       })
       .catch((error) =>{
         //console.log(error);
       });
-  }, []);
+  }, [url]);
+
+  function onClicked(newUrl){
+    setUrl(newUrl)
+  }
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <CharacterRow characters={starwarState}/>
-      <StyledButton>Next >></StyledButton>
+      <StyledButton onClick={() => onClicked(next)}>Next >></StyledButton>
     </div>
   );
 }

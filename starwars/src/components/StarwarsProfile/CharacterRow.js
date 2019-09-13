@@ -11,7 +11,7 @@ function CharacterRow ({characters}) {
     return(
         <CharacterStyle>
             {
-                characters.map(character => <Profile person={character}/>)
+                characters.map(character => <Profile key={character.height} person={character}/>)
             }
         </CharacterStyle> 
     );
