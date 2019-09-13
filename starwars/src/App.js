@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 
+const starWarApi = 'https://swapi.co/api/'
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -13,8 +14,15 @@ const App = () => {
   const [starwarState, setStarwarState] = useState();
 
   useEffect(() =>{
-    axios.get()
-  })
+    axios.get(starWarApi)
+      .then((response) =>{
+        console.log(response.data);
+        setStarwarState(response.data)
+      })
+      .catch((error) =>{
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="App">
