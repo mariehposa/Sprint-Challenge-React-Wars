@@ -4,7 +4,9 @@ import styled from 'styled-components';
 function Profile () {
     return (
         <div>
-            <Image
+            
         </div>
     )
 }
+
+export default Profile;

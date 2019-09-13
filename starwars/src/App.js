@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
+import Profile from './components/StarwarsProfile/starwarsProfile';
+
+
 const starWarApi = 'https://swapi.co/api/people/'
 
 const App = () => {
@@ -27,6 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      <Profile/>
     </div>
   );
 }
